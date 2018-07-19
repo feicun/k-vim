@@ -676,3 +676,13 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
+
+" 解决高亮卡顿
+set nocursorcolumn
+syntax sync minlines=256
+set re=1
+
+" 解决高亮卡顿2
+" set re=1
+" set ttyfast
+" set lazyredraw

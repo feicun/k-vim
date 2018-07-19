@@ -17,7 +17,7 @@ filetype off " required! turn off
 " inspired by spf13, 自定义需要的插件集合
 if !exists('g:bundle_groups')
     " let g:bundle_groups=['python', 'javascript', 'golang', 'php', 'ruby', 'shell', 'markdown', 'html', 'css', 'less', 'coffeescript', 'tmux', 'json', 'beta']
-    let g:bundle_groups=['python', 'javascript', 'golang', 'markdown', 'html', 'css', 'less', 'tmux', 'beta']
+    let g:bundle_groups=['python', 'golang', 'markdown', 'tmux', 'beta']
 endif
 
 " ----------------------------------------------------------------------------
@@ -187,16 +187,16 @@ if count(g:bundle_groups, 'golang')
     " 1. vim a.go
     " 2. :GoInstallBinaries
     " vimgo  https://github.com/fatih/vim-go
-    Plug 'fatih/vim-go', {'for': 'go'}
+    Plug 'fatih/vim-go', {'for': 'go', 'tag': 'v1.18'}
 endif
 
 
 if count(g:bundle_groups, 'python')
     " for python.vim syntax highlight
     " pythonsyntax
-    Plug 'hdima/python-syntax'
-    Plug 'hynek/vim-python-pep8-indent'
-    Plug 'Glench/Vim-Jinja2-Syntax'
+    Plug 'hdima/python-syntax', {'for': 'py'}
+    Plug 'hynek/vim-python-pep8-indent', {'for': 'py'}
+    Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'py'}
 
     " isort  https://github.com/timothycrosley/isort#readme + https://github.com/fisadev/vim-isort#installation
     " pip install isort
@@ -384,7 +384,7 @@ if has_key(g:plugs, 'ale')
     let g:ale_linters = {
     \   'python': ['flake8'],
     \   'javascript': ['eslint'],
-    \   'go': ['gofmt', 'go vet', 'go build'],
+    \   'go': ['gofmt', 'go build'],
     \}
 
     " E501 -> 120 chars
@@ -857,10 +857,15 @@ endif
 
 " vimgo {{{
     let g:go_highlight_functions = 1
-    let g:go_highlight_methods = 1
+    " let g:go_highlight_function_arguments = 1
+    let g:go_highlight_functions_calls = 1
+    let g:go_highlight_types = 1
+    let g:go_highlight_fields = 1
+    let g:go_highlight_format_strings = 1
     let g:go_highlight_structs = 1
     let g:go_highlight_operators = 1
     let g:go_highlight_build_constraints = 1
+    let g:go_highlight_extra_types = 1
 
     let g:go_fmt_fail_silently = 1
     " format with goimports instead of gofmt
