@@ -187,7 +187,7 @@ if count(g:bundle_groups, 'golang')
     " 1. vim a.go
     " 2. :GoInstallBinaries
     " vimgo  https://github.com/fatih/vim-go
-    Plug 'fatih/vim-go', {'for': 'go', 'tag': 'v1.18'}
+    Plug 'fatih/vim-go', {'for': 'go', 'tag': 'v1.20'}
 endif
 
 
@@ -384,7 +384,7 @@ if has_key(g:plugs, 'ale')
     let g:ale_linters = {
     \   'python': ['flake8'],
     \   'javascript': ['eslint'],
-    \   'go': ['gofmt', 'go build'],
+    \   'go': ['gofmt', 'go build', 'govet'],
     \}
 
     " E501 -> 120 chars
@@ -466,6 +466,9 @@ endif
         \ 'tagbar' : 1,
         \ 'gitcommit' : 1,
         \}
+    " let g:ycm_filetype_specific_completion_to_disable = {
+        " \ 'go' : 1,
+        " \}
 " }}}
 
 
@@ -857,21 +860,27 @@ endif
 
 " vimgo {{{
     let g:go_highlight_functions = 1
-    " let g:go_highlight_function_arguments = 1
+    " let g:go_highlight_function_parameters = 1
     let g:go_highlight_functions_calls = 1
     let g:go_highlight_types = 1
     let g:go_highlight_fields = 1
     let g:go_highlight_format_strings = 1
     let g:go_highlight_structs = 1
-    let g:go_highlight_operators = 1
-    let g:go_highlight_build_constraints = 1
+    " let g:go_highlight_operators = 1
+    " let g:go_highlight_build_constraints = 1
     let g:go_highlight_extra_types = 1
 
     let g:go_fmt_fail_silently = 1
     " format with goimports instead of gofmt
     let g:go_fmt_command = "goimports"
-    let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+    " let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+    let g:syntastic_go_checkers = ['golint', 'errcheck']
     let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'java'] }
+
+    " use gopls for :GoDef
+    let g:go_def_mode='gopls'
+    " use gopls for :GoInfo
+    let g:go_info_mode='gopls'
 " }}}
 
 " markdown {{{
