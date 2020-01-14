@@ -387,7 +387,6 @@ if has_key(g:plugs, 'ale')
     \   'go': ['gofmt', 'go build', 'govet'],
     \}
 
-    " E501 -> 120 chars
     let g:ale_python_flake8_options="--ignore=E121,E123,E126,E226,E24,E704,W503 --max-line-length=120"
 
     let g:ale_sign_error = '>>'
