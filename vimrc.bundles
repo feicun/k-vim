@@ -187,7 +187,7 @@ if count(g:bundle_groups, 'golang')
     " 1. vim a.go
     " 2. :GoInstallBinaries
     " vimgo  https://github.com/fatih/vim-go
-    Plug 'fatih/vim-go', {'for': 'go', 'tag': 'v1.20'}
+    Plug 'fatih/vim-go', {'for': 'go', 'tag': 'v1.22'}
 endif
 
 
