@@ -144,9 +144,11 @@ Plug 'kien/rainbow_parentheses.vim'
 " 主题 molokai
 Plug 'tomasr/molokai'
 " 主题 tender
-Plug 'jacoborus/tender.vim'
+" Plug 'jacoborus/tender.vim'
 " 主题 gruvbox
 Plug 'morhetz/gruvbox'
+" 主题 onedark
+Plug 'joshdick/onedark.vim'
 
 
 " nav
@@ -468,9 +470,9 @@ endif
         \ 'tagbar' : 1,
         \ 'gitcommit' : 1,
         \}
-    " let g:ycm_filetype_specific_completion_to_disable = {
-        " \ 'go' : 1,
-        " \}
+    let g:ycm_filetype_specific_completion_to_disable = {
+        \ 'go' : 1,
+        \}
 " }}}
 
 
@@ -885,6 +887,10 @@ endif
     let g:go_def_mode='gopls'
     " use gopls for :GoInfo
     let g:go_info_mode='gopls'
+    " Automatically get signature/type info for object under cursor
+    " let g:go_auto_type_info = 1
+    " Automatically display autocomplete options when type .
+    au filetype go inoremap <buffer> . .<C-x><C-o>
 " }}}
 
 " markdown {{{
